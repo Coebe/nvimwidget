@@ -12,6 +12,8 @@ move cursor to the top,middle,bottom of screen is `H, M, L`
 - **u**p
 - **d**own
 - **f**orward
+  lower f to find character after cursor in the line  
+  higher F to find character before cursor in the line 
 - **b**ack
 - **H**ome
 - **M**iddle
