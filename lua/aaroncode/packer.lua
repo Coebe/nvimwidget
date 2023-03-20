@@ -1,6 +1,9 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 local mirror = 'https://ghproxy.com/https://github.com'
 
+-- Only required if you have packer configured as `opt`
+vim.cmd.packadd('packer.nvim')
+
 local packer = require('packer')
 --[[
 packer.init {
@@ -97,4 +100,8 @@ packer.startup(function(use)
 	  }
   }
   use('ThePrimeagen/vim-be-good')
-end)
+  use {
+	  'windwp/nvim-autopairs',
+	  config = function () require('nvim-autopairs').setup {} end
+  }
+  end)
