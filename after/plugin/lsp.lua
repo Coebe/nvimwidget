@@ -1,5 +1,19 @@
 local lsp = require('lsp-zero')
 
+--[[
+local mlsp = require('mason-lspconfig')
+
+mlsp.setup{
+	ensure_installed = { 'lua-language-server', 'bash-language-server', 'json-lsp'}
+}
+
+mlsp.setup_handlers {
+	function (server)
+		require('lspconfig')[server].setup()
+	end
+}
+]]
+
 lsp.preset({
   name = 'minimal',
   set_lsp_keymaps = true,
@@ -10,7 +24,7 @@ lsp.preset({
 lsp.ensure_installed({
 	'tsserver',
 	'eslint',
-	'sumneko_lua',
+	--'sumneko_lua',
 	'rust_analyzer',
 })
 
