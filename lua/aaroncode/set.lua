@@ -1,3 +1,5 @@
+print("hi, set is loaded.")
+
 vim.opt.guicursor = " "
 
 vim.opt.number = true
@@ -12,3 +14,4 @@ vim.opt.smartindent = true
 
 vim.opt.highlightsearch = false
 vim.opt.incsearch = true
+

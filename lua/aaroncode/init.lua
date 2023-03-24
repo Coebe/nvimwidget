@@ -1,6 +1,6 @@
 require("aaroncode.set")
 require("aaroncode.remap")
---print("hello from aaroncode")
+print("hello from aaroncode")
 
 --[[
 require('telescope.builtin').find_files({

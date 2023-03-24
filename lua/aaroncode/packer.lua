@@ -1,10 +1,11 @@
+print("hi, packer is loaded.")
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-local mirror = 'https://ghproxy.com/https://github.com'
+--local mirror = 'https://ghproxy.com/https://github.com'
 
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
 
-local packer = require('packer')
+--local packer = require('packer')
 --[[
 packer.init {
 	auto_clean = true,
@@ -28,8 +29,8 @@ for _, p in pairs(parsers) do
 	)
 end
 ]]
-packer.startup(function(use)
---return require('packer').startup(function(use)
+--packer.startup(function(use)
+return require('packer').startup(function(use)
   -- Packer can manage itself
   -- use { mirror .. 'wbthomason/packer.nvim' }
 
@@ -76,7 +77,7 @@ packer.startup(function(use)
   -- a git wrapper
   use('tpope/vim-fugitive')
 
-  -- 
+  --
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
