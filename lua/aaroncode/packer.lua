@@ -2,33 +2,12 @@ print("hi, packer is loaded.")
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 --local mirror = 'https://ghproxy.com/https://github.com'
 
+require"nvim-treesitter.install".compilers
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
+--vim.cmd [[packadd 'packer.nvim']] 
 
 --local packer = require('packer')
---[[
-packer.init {
-	auto_clean = true,
-	compile_on_sync = true,
-}
-
-packer.init({
-	git = {
-		clone_timeout = 288,
-		default_url_format = 'git@github.com:%s',
-	},
-	max_jobs = 30,
-})
-
-require("nvim-treesitter.install").prefer_git = true
-local parsers = require("nvim-treesitter.parsers").get_parser_configs()
-for _, p in pairs(parsers) do
-	p.install_info.url = p.install_info.url:gsub(
-	"https://github.com/",
-	"git@github.com:"
-	)
-end
-]]
 --packer.startup(function(use)
 return require('packer').startup(function(use)
   -- Packer can manage itself
@@ -67,7 +46,8 @@ return require('packer').startup(function(use)
 	  end
   })
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSInstallFromGrammar,'})
+  use('nvim-treesitter/nvim-treesitter', {run = ':TSInstallFromGrammar'})
+  --use('nvim-treesitter/nvim-treesitter', {run = ':TSInstall'})
   --use('nvim-treesitter/playground')
 
   -- the recent file display

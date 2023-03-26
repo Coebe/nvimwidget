@@ -23,6 +23,7 @@ lsp.preset({
 
 lsp.ensure_installed({
 	'tsserver',
+	'lua',
 	'eslint',
 	--'sumneko_lua',
 	'rust_analyzer',
