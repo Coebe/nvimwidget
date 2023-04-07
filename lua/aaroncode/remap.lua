@@ -16,3 +16,7 @@ end)
 -- cmd :help tab to explor more
 vim.keymap.set("n", "<C-h>", "gT", opt)
 vim.keymap.set("n", "<C-l>", "gt", opt)
+
+-- window
+--vim.keymap.set("n", "<C-wh>", "<C-w>h", opt)
+

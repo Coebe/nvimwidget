@@ -1,29 +1,26 @@
 local lsp = require('lsp-zero')
 
---[[
-local mlsp = require('mason-lspconfig')
-
-mlsp.setup{
-	ensure_installed = { 'lua-language-server', 'bash-language-server', 'json-lsp'}
-}
-
-mlsp.setup_handlers {
-	function (server)
-		require('lspconfig')[server].setup()
-	end
-}
-]]
+--local mlsp = require('mason-lspconfig')
+--
+--mlsp.setup{
+--	ensure_installed = { 'lua-language-server', 'bash-language-server', 'json-lsp'}
+--}
+--
+--mlsp.setup_handlers {
+--	function (server)
+--		require('lspconfig')[server].setup()
+--	end
+--}
 
 lsp.preset({
-  name = 'minimal',
-  set_lsp_keymaps = true,
-  manage_nvim_cmp = true,
-  suggest_lsp_servers = false,
+	name = 'minimal',
+	set_lsp_keymaps = true,
+	manage_nvim_cmp = true,
+	suggest_lsp_servers = false,
 })
-
 lsp.ensure_installed({
 	'tsserver',
-	'lua',
+	-- 'lua-language-server',
 	'eslint',
 	--'sumneko_lua',
 	'rust_analyzer',
@@ -41,11 +38,9 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-Space>'] = cmp.mapping.complete(),
 })
 
---[[
 lsp.set_preferences({
 	sign_icons = { }
 })
-]]
 
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings

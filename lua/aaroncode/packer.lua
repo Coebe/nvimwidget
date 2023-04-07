@@ -2,7 +2,7 @@ print("hi, packer is loaded.")
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 --local mirror = 'https://ghproxy.com/https://github.com'
 
-require"nvim-treesitter.install".compilers
+--require"nvim-treesitter.install".compilers
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
 --vim.cmd [[packadd 'packer.nvim']] 
