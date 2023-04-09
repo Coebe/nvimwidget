@@ -39,7 +39,6 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-lua/plenary.nvim',
             -- 'kyazdani42/nvim-web-devicons',
-            'nvim-tree/nvim-web-devicons',
             --'ryanoasis/vim-devicons',
         }
     }
@@ -90,4 +89,14 @@ return require('packer').startup(function(use)
         'windwp/nvim-autopairs',
         config = function() require('nvim-autopairs').setup {} end
     }
+
+    ------------------------------------------------------------
+    -----                  layout plugin                   -----
+    ------------------------------------------------------------
+    use('preservim/nerdtree')
+
+    ------------------------------------------------------------
+    -----               decoration plugin                  -----
+    ------------------------------------------------------------
+    use('nvim-tree/nvim-web-devicons')
 end)
