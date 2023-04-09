@@ -1,22 +1,46 @@
 print("hi, remap is loaded.")
 
 vim.g.mapleader = " "
-local opt = { noremap = true, silent = true }
+--local opt = { noremap = true, silent = true }
 
 ---- @param "n" -> normal mode
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
+vim.keymap.set("n", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "<leader>s", function()
-	vim.cmd("so")
+    vim.cmd("so")
 end)
 
+--- coding
+-- move select line or code up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- let cursor always show middle of the window
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- paste & yank
+-- purpose is keep the last yank phrase/sth
+vim.keymap.set("x", "<leader>p", "\"_dP")
+-- copy/paste things to system clipboard
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>p", "\"+p")
+vim.keymap.set("v", "<leader>p", "\"+p")
+
+--- project
+-- to open other projects
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<leader>f", function()
+    vim.lsp.buf.format()
+end)
+
+-- window & tab
 -- about tab switch/buffer
 -- switch prev & next tab
 -- cmd :help tab to explor more
-vim.keymap.set("n", "<C-h>", "gT", opt)
-vim.keymap.set("n", "<C-l>", "gt", opt)
+--vim.keymap.set("n", "<C-h>", "gT", opt)
+--vim.keymap.set("n", "<C-l>", "gt", opt)
 
--- window
 --vim.keymap.set("n", "<C-wh>", "<C-w>h", opt)
-

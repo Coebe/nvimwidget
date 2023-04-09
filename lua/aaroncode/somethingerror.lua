@@ -1,4 +1,5 @@
 --[[
+---@ cuz input a invalid symbol(..opt.guicursor = " ")white space is invalid symbol
 while source set.lua file errors
 E5108: Error executing lua: [string ":source (no file)"]:9: nvim_exec()..:source (no file): Vim(source):E5108: Error executi
 ng lua vim/_meta.lua:0: E545: Missing colon
