@@ -61,17 +61,22 @@ return require('packer').startup(function(use)
     -- a git wrapper
     use('tpope/vim-fugitive')
 
-    --
+    -- practice nvim
+    use('ThePrimeagen/vim-be-good')
+
+    ------------------------------------------------------------
+    -----                     coding                       -----
+    ------------------------------------------------------------
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
+        branch = 'v2.x',
         requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-            { 'williamboman/mason.nvim' },           -- Optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+            -- lsp support
+            { 'neovim/nvim-lspconfig' },             -- required
+            { 'williamboman/mason.nvim' },           -- optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- optional
 
-            -- Autocompletion
+            -- autocompletion
             { 'hrsh7th/nvim-cmp' },         -- Required
             { 'hrsh7th/cmp-nvim-lsp' },     -- Required
             { 'hrsh7th/cmp-buffer' },       -- Optional
@@ -84,11 +89,12 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
-    use('ThePrimeagen/vim-be-good')
     use {
         'windwp/nvim-autopairs',
         config = function() require('nvim-autopairs').setup {} end
     }
+
+    use { 'github/copilot.vim' }
 
     ------------------------------------------------------------
     -----                  layout plugin                   -----

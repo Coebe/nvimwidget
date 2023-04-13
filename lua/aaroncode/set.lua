@@ -1,7 +1,7 @@
 print("hi, set is loaded.")
 
 --vim.opt.guicursor = ""
-vim.opt.guifont = "JetBrainsMono NF"
+vim.opt.guifont = "JetBrainsMono NF:14"
 
 vim.opt.number = true
 vim.opt.relativenumber = true

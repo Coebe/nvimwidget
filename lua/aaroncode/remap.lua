@@ -12,7 +12,9 @@ vim.keymap.set("n", "<leader>s", function()
     vim.cmd("so")
 end)
 
---- coding
+------------------------------------------------------------
+-----                     coding                       -----
+------------------------------------------------------------
 -- move select line or code up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -31,13 +33,25 @@ vim.keymap.set("v", "<leader>p", "\"+p")
 
 --- project
 -- to open other projects
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<leader>c", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
 end)
 
--- window & tab
--- about tab switch/buffer
+------------------------------------------------------------
+-----                   window & tab                   -----
+------------------------------------------------------------
+-- switch window
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+-- close window
+vim.keymap.set("n", "<C-q>", "<C-w>q")
+
+------------------------------------------------------------
+-----              about tab switch/buffer             -----
+------------------------------------------------------------
 -- switch prev & next tab
 -- cmd :help tab to explor more
 --vim.keymap.set("n", "<C-h>", "gT", opt)
