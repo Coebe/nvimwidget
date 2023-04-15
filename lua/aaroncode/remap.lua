@@ -8,9 +8,9 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<C-c>", "<Esc>")
 
-vim.keymap.set("n", "<leader>s", function()
-    vim.cmd("so")
-end)
+-- vim.keymap.set("n", "<leader>ps", function()
+--     vim.cmd("so")
+-- end, { desc = '[P]roject [S]ource' })
 
 ------------------------------------------------------------
 -----                     coding                       -----

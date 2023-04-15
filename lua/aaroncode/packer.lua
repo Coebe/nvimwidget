@@ -1,3 +1,7 @@
+-- 2023-04-15 21:33
+-- use lazy vim and comment packer plugins manager for now
+if true then return end
+
 print("hi, packer is loaded.")
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 --local mirror = 'https://ghproxy.com/https://github.com'
@@ -20,28 +24,19 @@ return require('packer').startup(function(use)
     -- Packer
     use 'wbthomason/packer.nvim'
 
-    --[[
-  config = {
-	  -- max taks num
-	  max_jobx = 16,
-	  -- customize source
-	  git = {
-		  default_url_format = 'git@github.com:%s',
-	  },
-  }
-  ]]
+    use 'LazyVim/LazyVim'
     -- Common utilities
     -- use('nvim-lua/plenary.nvim')
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        -- or                            , branch = '0.1.x',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            -- 'kyazdani42/nvim-web-devicons',
-            --'ryanoasis/vim-devicons',
-        }
-    }
+    -- use {
+    --     'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    --     -- or                            , branch = '0.1.x',
+    --     requires = {
+    --         'nvim-lua/plenary.nvim',
+    --         -- 'kyazdani42/nvim-web-devicons',
+    --         --'ryanoasis/vim-devicons',
+    --     }
+    -- }
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
@@ -50,7 +45,7 @@ return require('packer').startup(function(use)
         end
     })
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSInstallFromGrammar' })
+    --use('nvim-treesitter/nvim-treesitter', { run = ':TSInstallFromGrammar' })
     --use('nvim-treesitter/nvim-treesitter', {run = ':TSInstall'})
     --use('nvim-treesitter/playground')
 
@@ -58,8 +53,6 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
 
-    -- a git wrapper
-    use('tpope/vim-fugitive')
 
     -- practice nvim
     use('ThePrimeagen/vim-be-good')
@@ -67,14 +60,31 @@ return require('packer').startup(function(use)
     ------------------------------------------------------------
     -----                     coding                       -----
     ------------------------------------------------------------
+
+    -- a Git related plugins
+    use('tpope/vim-fugitive')
+    use('tpope/vim-rhubarb')
+
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
             -- lsp support
-            { 'neovim/nvim-lspconfig' },             -- required
-            { 'williamboman/mason.nvim' },           -- optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- optional
+            -- Automatically install LSPs to stdpath for neovim
+            {
+                -- LSP Configuration & Plugins
+                'neovim/nvim-lspconfig',
+                dependencies = {
+                    -- Useful status updates for LSP
+                    -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+                    { 'j-hui/fidget.nvim', opts = {} },
+
+                    -- Additional lua configuration, makes nvim stuff amazing!
+                    'folke/neodev.nvim',
+                }
+            },                                                     -- required
+            { 'williamboman/mason.nvim',          config = true }, -- optional
+            { 'williamboman/mason-lspconfig.nvim' },               -- optional
 
             -- autocompletion
             { 'hrsh7th/nvim-cmp' },         -- Required
