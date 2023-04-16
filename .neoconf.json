@@ -9,6 +9,9 @@
     "plugins": {
       "sumneko_lua": {
         "enabled": true
+      },
+      "lua_ls": {
+        "enabled": false
       }
     }
   }
