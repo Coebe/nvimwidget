@@ -5,13 +5,17 @@ vim.g.mapleader = " "
 --local opt = { noremap = true, silent = true }
 
 ---- @param "n" -> normal mode
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>w", vim.cmd.w)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "back to vim directory" })
+vim.keymap.set("n", "<leader>w", vim.cmd.w, { desc = "[W]rite file" })
 vim.keymap.set("n", "<C-c>", "<Esc>")
 
 -- vim.keymap.set("n", "<leader>ps", function()
 --     vim.cmd("so")
 -- end, { desc = '[P]roject [S]ource' })
+
+-- vim.keymap.set("n", "<leader>fm", function()
+--     vim.cmd("e ++ff=dos")
+-- end, { desc = "[F]ormat ^[M] symbol" })
 
 ------------------------------------------------------------
 -----                     coding                       -----
@@ -26,18 +30,18 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- paste & yank
 -- purpose is keep the last yank phrase/sth
-vim.keymap.set("x", "<leader>p", '"_dP')
+vim.keymap.set("x", "<leader>p", '"_dP', { desc = "[P]aste from system clipboard" })
 -- copy/paste things to system clipboard
-vim.keymap.set("v", "<leader>y", '"+y')
-vim.keymap.set("n", "<leader>p", '"+p')
-vim.keymap.set("v", "<leader>p", '"+p')
+vim.keymap.set("v", "<leader>yy", '"+y', { desc = "[Y]ank to system clipboard" })
+vim.keymap.set("n", "<leader>pp", '"+p', { desc = "[P]aste from system clipboard" })
+vim.keymap.set("v", "<leader>pp", '"+p', { desc = "[P]aste from system clipboard" })
 
 --- project
 -- to open other projects
-vim.keymap.set("n", "<leader>c", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<leader>c", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "use for tmux emulator" })
 vim.keymap.set("n", "<leader>f", function()
-  vim.lsp.buf.format()
-end)
+    vim.lsp.buf.format()
+end, { desc = "[F]ormat current file" })
 
 ------------------------------------------------------------
 -----                   window & tab                   -----
