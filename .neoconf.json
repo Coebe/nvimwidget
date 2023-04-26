@@ -10,9 +10,7 @@
       "sumneko_lua": {
         "enabled": true
       },
-      "lua_ls": {
-        "enabled": false
-      }
+      //"lua_ls": { "enabled": false }
     }
   }
 }

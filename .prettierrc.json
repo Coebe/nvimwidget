@@ -1,0 +1,12 @@
+{
+  "parser": "json",
+  "printWidth": 120,
+  "tabWidth": 4,
+  "semi": true,
+  "bracketSpacing": false,
+  "jsxBracketSameLine": false,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "useTabs": false
+}

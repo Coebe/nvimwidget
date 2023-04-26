@@ -10,15 +10,8 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
     spec = {
         -- add LazyVim and import its plugins
-        {
-            "LazyVim/LazyVim",
-            import = "lazyvim.plugins",
-            opts = {
-                --colorscheme = "gruvbox",
-                --Options should be set before colorscheme
-                --colorscheme = "rose-pine",
-            },
-        },
+        { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+        { import = "lazyvim.plugins.extras.formatting.prettier" },
         {
             -- practice vim operate
             "ThePrimeagen/vim-be-good",

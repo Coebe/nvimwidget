@@ -52,7 +52,7 @@ return {
     },
     config = function()
         -- Options should be set before colorscheme
-        vim.cmd.colorscheme("rose-pine")
+        vim.cmd.colorscheme("tokyonight")
 
         --- @param just for the global space
         --- @param
