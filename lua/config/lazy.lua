@@ -15,6 +15,7 @@ require("lazy").setup({
         {
             -- practice vim operate
             "ThePrimeagen/vim-be-good",
+
             "tyru/open-browser.vim",
         },
         -- import any extras modules here

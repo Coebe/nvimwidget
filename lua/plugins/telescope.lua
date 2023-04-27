@@ -3,6 +3,25 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         keys = {
+            {
+                "<leader>ff",
+                function()
+                    require("telescope.builtin").find_files({
+                        cwd = vim.fn.expand("%:p:h"),
+                        file_ignore_patterns = { "node_modules" },
+                    })
+                end,
+                desc = "[f]ind [f]iles (cwd)",
+            },
+            {
+                "<leader>fF",
+                function()
+                    require("telescope.builtin").find_files({
+                        file_ignore_patterns = { "node_modules" },
+                    })
+                end,
+                desc = "[f]ind [F]iles (root)",
+            },
             -- add a keymap to browse plugin files
             -- stylua: ignore
             -- {
@@ -41,7 +60,6 @@ return {
             -- end)
             vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
             vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
             vim.keymap.set("n", "<leader>pr", builtin.lsp_references, { desc = "[P]ameter [R]eferences" })
             vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "[G]it [F]iles" })
             vim.keymap.set("n", "<leader>gt", builtin.git_status, { desc = "T: [G]it sta[T]us" })
