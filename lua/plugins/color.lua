@@ -53,10 +53,5 @@ return {
     config = function()
         -- Options should be set before colorscheme
         vim.cmd.colorscheme("tokyonight")
-
-        --- @param just for the global space
-        --- @param
-        -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end,
 }
