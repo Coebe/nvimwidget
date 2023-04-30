@@ -1,3 +1,7 @@
+if true then
+    return {}
+end
+
 local M = {}
 
 local utils = require("utils")
@@ -56,5 +60,3 @@ function M.list_session()
     }
     require("telescope.builtin").find_files(opts)
 end
-
-return M

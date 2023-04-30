@@ -3,6 +3,7 @@
 -- Add any additional keymaps hereby
 
 vim.g.mapleader = " "
+vim.g.vimspector_enable_mapping = "VISUAL_STUDIO"
 --local opt = { noremap = true, silent = true }
 
 ---- @param "n" -> normal mode
@@ -71,17 +72,6 @@ vim.keymap.set("n", "<C-q>", "<C-w>q")
 -- This file is automatically loaded by lazyvim.plugins.config
 
 local Util = require("lazyvim.util")
-
-function Map(mode, lhs, rhs, opts)
-    local keys = require("lazy.core.handler").handlers.keys
-    ---@cast keys LazyKeysHandler
-    -- do not create the keymap if a lazy keys handler exists
-    if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-        opts = opts or {}
-        opts.silent = opts.silent ~= false
-        vim.keymap.set(mode, lhs, rhs, opts)
-    end
-end
 
 -- better up/down
 Map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -194,9 +184,9 @@ if vim.fn.has("nvim-0.9.0") == 1 then
 end
 
 -- floating terminal
-Map("n", "<leader>ft", function() Util.float_term(nil, { cwd = Util.get_root() }) end, { desc = "Terminal (root dir)" })
-Map("n", "<leader>fT", function() Util.float_term() end, { desc = "Terminal (cwd)" })
-Map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+Map("n", "<leader>fT", function() Util.float_term(nil, { cwd = Util.get_root() }) end, { desc = "Terminal (root dir)" })
+Map("n", "<leader>ft", function() Util.float_term() end, { desc = "Terminal (cwd)" })
+Map("t", "<C-c>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 
 -- windows
 Map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
