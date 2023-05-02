@@ -1,11 +1,10 @@
 -- about latex plugin
-if true then
-    return {
-        {
-            "lervag/vimtex",
-            enabled = false,
-        },
-        --[[
+return {
+    {
+        "lervag/vimtex",
+        -- enabled = false,
+    },
+    --[[
       - vimtex
         - compile files currently
         - transparent, let file compile result show in the background
@@ -15,12 +14,11 @@ if true then
         - powerful snip plugin
 
     --]]
-        --
-        {
-            "preservim/vim-markdown",
-        },
-    }
-end
+    --
+    {
+        "preservim/vim-markdown",
+    },
+}
 --[[
   - markdown
     - support KeTex
