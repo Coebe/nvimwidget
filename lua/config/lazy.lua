@@ -30,6 +30,8 @@ require("lazy").setup({
     -- disabled plugins
     { "lervag/vimtex",                   enabled = false },
     { "jose-elias-alvarez/null-ls.nvim", enabled = false },
+    { "nvim-neo-tree/neo-tree.nvim",     enabled = false },
+    { "nvim-tree/nvim-tree.lua",         enabled = false },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
