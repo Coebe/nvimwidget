@@ -32,6 +32,9 @@ require("lazy").setup({
     { "jose-elias-alvarez/null-ls.nvim", enabled = false },
     { "nvim-neo-tree/neo-tree.nvim",     enabled = false },
     { "nvim-tree/nvim-tree.lua",         enabled = false },
+    -- { "nvim-treesitter/nvim-treesitter", enabled = false },
+    -- { "williamboman/mason.nvim",         enabled = false },
+    -- { "stevearc/dressing.nvim",          enabled = false },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
