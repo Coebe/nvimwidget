@@ -2,19 +2,24 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps hereby
 
-function Map(mode, lhs, rhs, opts)
+function Map(mode, lhs, rhs, opts, isApi)
   local keys = require("lazy.core.handler").handlers.keys
   ---@cast keys LazyKeysHandler
   -- do not create the keymap if a lazy keys handler exists
   if not keys.active[keys.parse({ lhs, mode = mode }).id] then
     opts = opts or {}
     opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
+    if isApi then
+      vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+    else
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
   end
 end
 
 vim.g.mapleader = " "
-vim.g.vimspector_enable_mapping = "VISUAL_STUDIO"
+-- vim.g.vimspector_enable_mapping = "VISUAL_STUDIO"
+vim.g.loaded_python3_provider = 0
 vim.o.runtimepath = vim.o.runtimepath .. ",./bookmark.vim"
 --local opt = { noremap = true, silent = true }
 
@@ -67,7 +72,14 @@ Map("n", "<C-j>", "<C-w>j")
 Map("n", "<C-k>", "<C-w>k")
 -- close window
 Map("n", "<C-q>", "<C-w>q")
-
+-- tab btn
+local _opts = { silent = true, expr = true }
+-- Map("i", "<Tab>", "coc#pum#visible() ? coc#pum#next(1) :CheckBackspace() ? '\\<Tab>' :coc#refresh()", _opts, true)
+-- Map("i", "<S-Tab>", "coc#pum#visible() ? coc#pum#prev(1) : '\\<C-h>'", _opts, true)
+-- \ coc#pum#visible() ? coc#pum#next(1) :
+--       \ CheckBackspace() ? "\<Tab>" :
+--       \ coc#refresh()
+--inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 ------------------------------------------------------------
 -----              about tab switch/buffer             -----
 ------------------------------------------------------------
@@ -202,7 +214,7 @@ end
 
 -- floating terminal
 Map("n", "<leader>fT", function() Util.float_term(nil, { cwd = Util.get_root() }) end, { desc = "Terminal (root dir)" })
-Map("n", "<leader>ft", function() Util.float_term() end, { desc = "Terminal (cwd)" })
+Map("n", "<leader>ft", function() Util.float_term(nil, { cwd = vim.fn.expand("%:h") }) end, { desc = "Terminal (cwd)" })
 Map("t", "<C-c>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 
 -- windows

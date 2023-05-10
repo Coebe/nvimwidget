@@ -17,6 +17,7 @@ require("lazy").setup({
       "ThePrimeagen/vim-be-good",
 
       "tyru/open-browser.vim",
+      "fladson/vim-kitty",
     },
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
