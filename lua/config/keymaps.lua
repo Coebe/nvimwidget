@@ -187,14 +187,14 @@ end
 -- stylua: ignore start
 
 -- toggle options
-Map("n", "<leader>uf", require("lazyvim.plugins.lsp.format").toggle, { desc = "Toggle format on Save" })
+Map("n", "<leader>uf", require("lazyvim.util").toggle, { desc = "Toggle format on Save" })
 Map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 Map("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
 Map("n", "<leader>ul", function()
   Util.toggle("relativenumber", true)
   Util.toggle("number")
 end, { desc = "Toggle Line Numbers" })
-Map("n", "<leader>ud", Util.toggle_diagnostics, { desc = "Toggle Diagnostics" })
+Map("n", "<leader>ud", Util.toggle.diagnostics, { desc = "Toggle Diagnostics" })
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 Map("n", "<leader>uc", function() Util.toggle("conceallevel", false, { 0, conceallevel }) end,
   { desc = "Toggle Conceal" })
