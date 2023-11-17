@@ -97,6 +97,8 @@ local _opts = { silent = true, expr = true }
 
 local Util = require("lazyvim.util")
 
+Map("n", "vv", "viw", { desc = "Select current word" })
+
 -- better up/down
 Map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 Map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -164,7 +166,7 @@ Map("i", ".", ".<c-g>u")
 Map("i", ";", ";<c-g>u")
 
 -- save file
-Map({ "i", "v", "n", "s" }, "<leader>cr", "<cmd>w<cr><esc>", { desc = "Save file(Code Write)" })
+-- Map({ "v", "n", "s" }, "<leader>cr", "<cmd>w<cr><esc>", { desc = "Save file(Code Write)" })
 
 -- better indenting
 Map("v", "<", "<gv")
@@ -226,9 +228,6 @@ Map("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
 Map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
 
 -- tabs
-Map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
-Map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-Map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
-Map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-Map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-Map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+Map("n", "<leader>bl", "<cmd>tablast<cr>", { desc = "Last Tab" })
+Map("n", "<leader>bf", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+Map("n", "<leader>bn", "<cmd>tabnew<cr>", { desc = "New Tab" })
