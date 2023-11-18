@@ -189,7 +189,8 @@ end
 -- stylua: ignore start
 
 -- toggle options
-Map("n", "<leader>uf", require("lazyvim.util").toggle, { desc = "Toggle format on Save" })
+-- TODO sometime rhs receive table but expecited string|funciton
+-- Map("n", "<leader>uf", require("lazyvim.util").toggle, { desc = "Toggle format on Save" })
 Map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 Map("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
 Map("n", "<leader>ul", function()
@@ -202,9 +203,9 @@ Map("n", "<leader>uc", function() Util.toggle("conceallevel", false, { 0, concea
   { desc = "Toggle Conceal" })
 
 -- lazygit
-Map("n", "<leader>gg", function() Util.float_term({ "lazygit" }, { cwd = Util.get_root(), esc_esc = false }) end,
+Map("n", "<leader>gg", function() Util.terminal.open({ "lazygit" }, { cwd = Util.root.get(), esc_esc = false }) end,
   { desc = "Lazygit (root dir)" })
-Map("n", "<leader>gG", function() Util.float_term({ "lazygit" }, { esc_esc = false }) end, { desc = "Lazygit (cwd)" })
+Map("n", "<leader>gG", function() Util.terminal.open({ "lazygit" }, { esc_esc = false }) end, { desc = "Lazygit (cwd)" })
 
 -- quit
 Map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
@@ -215,8 +216,8 @@ if vim.fn.has("nvim-0.9.0") == 1 then
 end
 
 -- floating terminal
-Map("n", "<leader>fT", function() Util.float_term(nil, { cwd = Util.get_root() }) end, { desc = "Terminal (root dir)" })
-Map("n", "<leader>ft", function() Util.float_term(nil, { cwd = vim.fn.expand("%:h") }) end, { desc = "Terminal (cwd)" })
+Map("n", "<leader>fT", function() Util.terminal.open(nil, { cwd = Util.root.get() }) end, { desc = "Terminal (root dir)" })
+Map("n", "<leader>ft", function() Util.terminal.open(nil, { cwd = vim.fn.expand("%:h") }) end, { desc = "Terminal (cwd)" })
 Map("t", "<C-c>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 
 -- windows
