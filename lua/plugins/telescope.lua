@@ -37,9 +37,9 @@ return {
             pcall(require("telescope").load_extension, "fzf")
 
             -- See `:help telescope.builtin`
-            vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "[F]iles [R]ecent" })
-            vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-            vim.keymap.set("n", "<leader>/", function()
+            map("n", "<leader>fr", builtin.oldfiles, { desc = "[F]iles [R]ecent" })
+            map("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+            map("n", "<leader>/", function()
                 -- You can pass additional configuration to telescope to change theme, layout, etc.
                 builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
                     winblend = 10,
@@ -48,21 +48,14 @@ return {
             end, { desc = "[/] Fuzzily search in current buffer" })
 
             -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-            vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-            vim.keymap.set(
-                "n",
-                "<leader>sw",
-                builtin.grep_string, --({ search = vim.fn.input("Grep > ") })
-                { desc = "[S]earch current [W]ord" }
-            )
+            map("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+            map("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
             -- vim.keymap.set('n', '<leader>ps', function()
             --     builtin.grep_string({ search = vim.fn.input("Grep > ") })
             -- end)
-            Map("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-            Map("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-            Map("n", "<leader>pr", builtin.lsp_references, { desc = "[P]ameter [R]eferences" })
-            Map("n", "<leader>gf", builtin.git_files, { desc = "[G]it [F]iles" })
-            Map("n", "<leader>gt", builtin.git_status, { desc = "T: [G]it sta[T]us" })
+            map("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+            map("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+            map("n", "<leader>pr", builtin.lsp_references, { desc = "[P]ameter [R]eferences" })
         end,
         -- change some options
         opts = {
@@ -86,3 +79,4 @@ return {
         ft = "kitty",
     },
 }
+
