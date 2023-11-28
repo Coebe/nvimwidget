@@ -25,7 +25,6 @@ vim.o.runtimepath = vim.o.runtimepath .. ",./bookmark.vim"
 
 ---- @param "n" -> normal mode
 map("n", "<leader>pv", vim.cmd.Ex, { desc = "back to vim directory" })
-map("n", "<leader>w", vim.cmd.w, { desc = "[W]rite file" })
 map("n", "<C-c>", "<Esc>")
 
 -- Map("n", "<leader>ps", function()
@@ -125,13 +124,13 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- buffers
 if Util.has("bufferline.nvim") then
-    map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-    map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+    map("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+    map("n", "<A-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
     map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
     map("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 else
-    map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-    map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+    map("n", "<A-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+    map("n", "<A-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
     map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
     map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 end
@@ -231,6 +230,7 @@ map("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
 
 -- tabs
-map("n", "<leader>bl", "<cmd>tablast<cr>", { desc = "Last Tab" })
-map("n", "<leader>bf", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-map("n", "<leader>bn", "<cmd>tabnew<cr>", { desc = "New Tab" })
+-- map("n", "<leader>bl", "<cmd>tablast<cr>", { desc = "Last Tab" })
+map("n", "<leader>bf", "<cmd>buffer #<cr>", { desc = "Buffer first(keymaps)" })
+map("n", "<leader>bns", "<cmd>new<cr>", { desc = "Buffer split(keymaps)" })
+map("n", "<leader>bnv", "<cmd>vsplit new<cr>", { desc = "Buffer vsplit(keymaps)" })
