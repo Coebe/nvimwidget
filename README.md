@@ -20,3 +20,7 @@ sudo install lazygit /usr/local/bin
   ```
 - ripgrep
   `$ sudo apt-get install ripgrep`
+
+- telescope
+  `$ sudo apt-get install gcc clang make`
+

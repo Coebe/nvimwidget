@@ -231,6 +231,7 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
 
 -- tabs
 -- map("n", "<leader>bl", "<cmd>tablast<cr>", { desc = "Last Tab" })
-map("n", "<leader>bf", "<cmd>buffer #<cr>", { desc = "Buffer first(keymaps)" })
+map("n", "<leader>bf", "<cmd>buffer", { desc = "Buffer <input_des>(keymaps)" })
+map("n", "<leader>bl", "<cmd>buffer #<cr>", { desc = "Buffer last(keymaps)" })
 map("n", "<leader>bns", "<cmd>new<cr>", { desc = "Buffer split(keymaps)" })
 map("n", "<leader>bnv", "<cmd>vsplit new<cr>", { desc = "Buffer vsplit(keymaps)" })

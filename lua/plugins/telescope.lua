@@ -1,6 +1,10 @@
 -- change some telescopemoptions and a keymap to browse plugin files
 return {
     {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+    },
+    {
         "nvim-telescope/telescope.nvim",
         keys = {
             {
@@ -79,4 +83,3 @@ return {
         ft = "kitty",
     },
 }
-
