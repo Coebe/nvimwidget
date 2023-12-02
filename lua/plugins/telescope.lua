@@ -57,7 +57,14 @@ return {
             -- vim.keymap.set('n', '<leader>ps', function()
             --     builtin.grep_string({ search = vim.fn.input("Grep > ") })
             -- end)
-            map("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+
+            -- map("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+            map("n", "<leader>sg", function()
+                require("telescope.builtin").live_grep({
+                    cwd = vim.fn.expand("%:p:h"),
+                    file_ignore_patterns = { "node_modules" },
+                })
+            end, { desc = "[S]earch by [G]rep(plugins/telescope)" })
             map("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
             map("n", "<leader>pr", builtin.lsp_references, { desc = "[P]ameter [R]eferences" })
         end,
@@ -74,6 +81,7 @@ return {
                         ["<C-d>"] = false,
                     },
                 },
+                find_command = { "rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
             },
         },
     },
