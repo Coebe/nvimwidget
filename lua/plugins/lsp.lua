@@ -1,5 +1,8 @@
 return {
     {
+        "pechorin/any-jump.vim"
+    },
+    {
         "neoclide/coc.nvim",
         enabled = false,
         branch = "release",
@@ -26,6 +29,8 @@ return {
     {
         -- debug adapter
         "puremourning/vimspector",
+        -- diable
+        enabled = false,
 
         -- adapter requirement
         -- keys = { "<leader>di", "<Plug>VimspectorBalloonEval", desc = "[d]ebug [i]nspect" },
