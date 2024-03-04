@@ -4,7 +4,7 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
     },
-    {
+    { -- telescope
         "nvim-telescope/telescope.nvim",
         keys = {
             {

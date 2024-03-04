@@ -1,11 +1,14 @@
 return {
     {
-        "pechorin/any-jump.vim"
+        "pechorin/any-jump.vim",
     },
-    {
+    { -- coc
         "neoclide/coc.nvim",
-        enabled = false,
+        enabled = true,
         branch = "release",
+        config = function()
+            -- map("n", "<leader>pv", vim.cmd.Ex, { desc = "back to vim directory" })
+        end,
     },
     {
         "nvimtools/none-ls.nvim",
@@ -26,7 +29,7 @@ return {
             }
         end,
     },
-    {
+    { -- vimspector
         -- debug adapter
         "puremourning/vimspector",
         -- diable
@@ -36,7 +39,7 @@ return {
         -- keys = { "<leader>di", "<Plug>VimspectorBalloonEval", desc = "[d]ebug [i]nspect" },
         -- { "<leader>di", "<Plug>VimspectorBalloonEval", { desc = "[d]ebug [i]nspect" }},
     },
-    {
+    { -- lsp-zero.nvim
         "VonHeikemen/lsp-zero.nvim",
         branch = "v2.x",
         enabled = false,

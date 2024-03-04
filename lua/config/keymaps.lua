@@ -61,6 +61,9 @@ map("n", "<leader>f", function()
     vim.lsp.buf.format()
 end, { desc = "[F]ormat current file" })
 
+map("n", "<leader>[", "<cmd>foldopen<CR>", { desc = "unfold code scope" })
+map("n", "<leader>]", "<cmd>foldclose<CR>", { desc = "fold code scope" })
+
 ------------------------------------------------------------
 -----                   window & tab                   -----
 ------------------------------------------------------------
