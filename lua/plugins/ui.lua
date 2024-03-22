@@ -9,6 +9,7 @@ return {
     -- ui
     {
         "ryanoasis/vim-devicons",
+        event = "LazyFile",
     },
     -- Better `vim.notify()`
     {
@@ -65,7 +66,7 @@ return {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
         keys = {
-            { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>",            desc = "Toggle pin" },
+            { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
             { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
         },
         opts = {
@@ -156,7 +157,11 @@ return {
                             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
                             color = fg("Constant"),
                         },
-                        { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
+                        {
+                            require("lazy.status").updates,
+                            cond = require("lazy.status").has_updates,
+                            color = fg("Special"),
+                        },
                         {
                             "diff",
                             symbols = {
@@ -167,7 +172,7 @@ return {
                         },
                     },
                     lualine_y = {
-                        { "progress", separator = " ",                  padding = { left = 1, right = 0 } },
+                        { "progress", separator = " ", padding = { left = 1, right = 0 } },
                         { "location", padding = { left = 0, right = 1 } },
                     },
                     lualine_z = {
@@ -356,5 +361,5 @@ return {
     { "nvim-tree/nvim-web-devicons", lazy = true },
 
     -- ui components
-    { "MunifTanjim/nui.nvim",        lazy = true },
+    { "MunifTanjim/nui.nvim", lazy = true },
 }

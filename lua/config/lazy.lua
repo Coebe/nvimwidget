@@ -7,12 +7,22 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
--- local signs = vim.tbl_map(function(sign)
---     ---@type Sign
---     local ret = vim.fn.sign_getdefined(sign.name)[1]
---     ret.priority = sign.priority
---     return ret
--- end, vim.fn.sign_getplaced(buf, { group = "*", lnum = lnum })[1].signs)
+function map(mode, lhs, rhs, opts, isApi)
+    local keys = require("lazy.core.handler").handlers.keys
+    ---@cast keys LazyKeysHandler
+    -- do not create the keymap if a lazy keys handler exists
+    if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+        opts = opts or {}
+        opts.silent = opts.silent ~= false
+        local info = debug.getinfo(2, "S")
+        opts.desc = (opts.desc or "") .. " --=>" .. info.source:match("[^/\\]+$")
+        if isApi then
+            vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+        else
+            vim.keymap.set(mode, lhs, rhs, opts)
+        end
+    end
+end
 
 require("lazy").setup({
     spec = {

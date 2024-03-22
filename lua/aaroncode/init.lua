@@ -1,17 +1,6 @@
---require("lfs")
+-- disable loading options
+package.loaded["lazyvim.config.options"] = true
 
---[[
-require('telescope.builtin').find_files({
-	-- specific the search content(directory)
-	prompt_title = '~/.config',
-})
-
-require('packer').init({
-	git = {
-		default_url_format = 'git@github.com:%s'
-	}
-})
-]]
 local augroup = vim.api.nvim_create_augroup
 local aaroncodeGroup = augroup("aaroncode", {})
 
@@ -19,24 +8,24 @@ local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
 
 function R(name)
-  require("plenary.reload").reload_module(name)
+    require("plenary.reload").reload_module(name)
 end
 
 autocmd("TextYankPost", {
-  group = yank_group,
-  pattern = "*",
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = "IncSearch",
-      timeout = 40,
-    })
-  end,
+    group = yank_group,
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "IncSearch",
+            timeout = 40,
+        })
+    end,
 })
 
 autocmd({ "BufWritePre" }, {
-  group = aaroncodeGroup,
-  pattern = "*",
-  command = [[%s/\s\+$//e]],
+    group = aaroncodeGroup,
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
 })
 
 vim.g.netrw_browse_split = 0

@@ -41,8 +41,8 @@ return {
             pcall(require("telescope").load_extension, "fzf")
 
             -- See `:help telescope.builtin`
-            map("n", "<leader>fr", builtin.oldfiles, { desc = "[F]iles [R]ecent" })
-            map("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+            map("n", "<leader>fr", builtin.oldfiles, { desc = "Files Recent" })
+            map("n", "<leader><space>", builtin.buffers, { desc = "Find existing buffers" })
             map("n", "<leader>/", function()
                 -- You can pass additional configuration to telescope to change theme, layout, etc.
                 builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -52,8 +52,8 @@ return {
             end, { desc = "[/] Fuzzily search in current buffer" })
 
             -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-            map("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-            map("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
+            map("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
+            map("n", "<leader>sw", builtin.grep_string, { desc = "Search current Word" })
             -- vim.keymap.set('n', '<leader>ps', function()
             --     builtin.grep_string({ search = vim.fn.input("Grep > ") })
             -- end)
@@ -65,8 +65,8 @@ return {
                     file_ignore_patterns = { "node_modules" },
                 })
             end, { desc = "[S]earch by [G]rep(plugins/telescope)" })
-            map("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-            map("n", "<leader>pr", builtin.lsp_references, { desc = "[P]ameter [R]eferences" })
+            map("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
+            map("n", "<leader>pr", builtin.lsp_references, { desc = "Pameter References" })
         end,
         -- change some options
         opts = {

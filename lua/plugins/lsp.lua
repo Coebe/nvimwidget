@@ -109,7 +109,6 @@ return {
             })
 
             lsp.on_attach(function(client, bufnr)
-                print("help")
                 local opts = { buffer = bufnr, remap = false }
 
                 -- Map("n", "gd", function() vim.lsp.buf.definition() end, opts)
